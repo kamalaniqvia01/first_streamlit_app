@@ -33,9 +33,6 @@ try:
   else:
     back_from_function=get_fruityvice_data(fruit_choice)
     streamlit.dataframe(back_from_function) 
-except URLError as e:
-  streamlit.stop()
-
 
 
 def insert_row_snowflake(new_fruit):
@@ -56,6 +53,7 @@ try:
     streamlit.text("The Fruit Load list contains:")
     streamlit.dataframe(my_data_rows)
     insert_output = insert_row_snowflake(add_my_fruit)
-     
+    streamlit.text(insert_output)
+    
 except URLError as e:
   streamlit.stop()
