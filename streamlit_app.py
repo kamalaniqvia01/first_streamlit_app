@@ -35,13 +35,13 @@ try:
     streamlit.dataframe(back_from_function) 
 
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("SELECT * from fruit_load_list")
-#my_data_row = my_cur.fetchone()
-my_data_rows = my_cur.fetchall()
-streamlit.text("The Fruit Load list contains:")
-streamlit.dataframe(my_data_rows)
+    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+    my_cur = my_cnx.cursor()
+    my_cur.execute("SELECT * from fruit_load_list")
+    #my_data_row = my_cur.fetchone()
+    my_data_rows = my_cur.fetchall()
+    streamlit.text("The Fruit Load list contains:")
+    streamlit.dataframe(my_data_rows)
 
 def insert_row_snowflake(new_fruit):
   with my_cnx.cursor as my_cur:
