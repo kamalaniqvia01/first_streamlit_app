@@ -33,7 +33,8 @@ try:
   else:
     back_from_function=get_fruityvice_data(fruit_choice)
     streamlit.dataframe(back_from_function) 
-
+except URLError as e:
+  streamlit.stop()
 
 def insert_row_snowflake(new_fruit):
   with my_cnx.cursor as my_cur:
