@@ -43,6 +43,13 @@ try:
   else:
     back_from_function=get_fruityvice_data(fruit_choice)
     streamlit.dataframe(back_from_function) 
+  
+  add_my_fruit = streamlit.text_input('What fruit would you like to add?')
+  if not add_my_fruit:
+    streamlit.error("Please type a fruit you would like to add.")
+  else:
+    insert_output = insert_row_snowflake(add_my_fruit)
+    streamlit.text(insert_output)
 except URLError as e:
   streamlit.stop()
 
@@ -51,13 +58,3 @@ def insert_row_snowflake(new_fruit):
     my_cur.execute("Insert into fruit_load_lists values('" + new_fruit + " ')")
     return "Thanks for adding " + new_fruit
 
-try:
-  add_my_fruit = streamlit.text_input('What fruit would you like to add?')
-  if not add_my_fruit:
-    streamlit.error("Please type a fruit you would like to add.")
-  else:
-    insert_output = insert_row_snowflake(add_my_fruit)
-    streamlit.text(insert_output)
-    
-except URLError as e:
-  streamlit.stop()
