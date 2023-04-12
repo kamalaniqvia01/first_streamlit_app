@@ -55,7 +55,7 @@ try:
     my_data_rows = my_cur.fetchall()
     streamlit.text("The Fruit Load list contains:")
     streamlit.dataframe(my_data_rows)
-    insert_row_snowflake(add_my_fruit)
+    insert_output = insert_row_snowflake(add_my_fruit)
      
 except URLError as e:
   streamlit.stop()
