@@ -34,9 +34,9 @@ def get_fruityvice_data(this_fruit_choice):
   return fruityvice_normalized
 
 def insert_row_snowflake(new_fruit):
-  with my_cnx.cursor() as my_cur:
+  with my_cnx.cursor() as my_cur1:
     streamlit.text('Inside insert_row_snowflake')
-    my_cur.execute("Insert into fruit_load_lists values('" + new_fruit + " ')")
+    my_cur1.execute("Insert into fruit_load_lists values('" + new_fruit + " ')")
     streamlit.text('Insert Complete')
     return "Thanks for adding " + new_fruit
 
