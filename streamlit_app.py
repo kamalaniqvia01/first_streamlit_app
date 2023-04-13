@@ -55,7 +55,7 @@ try:
     insert_output=insert_row_snowflake(add_my_fruit)
     streamlit.text(insert_output)
     
-if streamlit.button('Get Fruit List'):
+  if streamlit.button('Get Fruit List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     my_data_rows = get_fruit_load_list()
     my_cnx.close()
