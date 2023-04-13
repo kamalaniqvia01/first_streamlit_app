@@ -40,14 +40,14 @@ def insert_row_snowflake(new_fruit):
 
 streamlit.header("Fruityvice Fruit Advice!")
 
-try:
-  fruit_choice = streamlit.text_input('What fruit would you like information about?')
-  if not fruit_choice:
-    streamlit.error("Please select a fruit to get information.")
-  else:
-    back_from_function=get_fruityvice_data(fruit_choice)
-    streamlit.dataframe(back_from_function) 
-  
+
+#   fruit_choice = streamlit.text_input('What fruit would you like information about?')
+#   if not fruit_choice:
+#     streamlit.error("Please select a fruit to get information.")
+#   else:
+#     back_from_function=get_fruityvice_data(fruit_choice)
+#     streamlit.dataframe(back_from_function) 
+try:  
   add_my_fruit = streamlit.text_input('What fruit would you like to add?')
   if not add_my_fruit:
     streamlit.error("Please type a fruit you would like to add.")
